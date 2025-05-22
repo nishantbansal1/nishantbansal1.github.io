@@ -1,0 +1,663 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Networking</title>
+
+
+    <link rel="stylesheet" href="dist/dist/reset.css">
+    <link rel="stylesheet" href="dist/dist/reveal.css">
+    <link rel="stylesheet" href="dist/dist/theme/black.css" id="theme">
+
+    <!-- stats.js lib -->
+    <!-- <script src="http://threejs.org/examples/js/libs/stats.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script> -->
+
+</head>
+
+<body>
+
+    <div class="reveal">
+        <div class="slides">
+
+            <section>
+                <h1>Networking</h1>
+
+                <h3>Nishant B.</h3>
+            </section>
+
+            <section data-markdown>
+                <script type="text/template">
+                    ## Pre-Pre-Networking Era - 1800s - Great Age of Invention
+
+                    - History of Networking - The Pre-Pre Netowrking Era - 1800s - Great Age of Invention
+                        - Notable inventions - Electic Battery, Bulb, Motor, Telegraph, FaxMachine, TypeWriter, Telephone etc
+                        - Telegraph: The Birth of Long-Distance Networking
+                            - Commercialized by Samuel Morse in 1840s.
+                            - Solved the base need of networking - Long distance communication
+                            - Worked by sending electric signals on copper wires
+                                - Sent encoded electrical signals (Morse code or needle deflections)
+                            - 1858: First transatlantic cable connected Europe and North America.
+
+                        - TelePhone
+                            - 1876 - Graham bell invented telephone
+                            - Used same network as telegraph
+                            - Transmitter and Receiver were built using diaphragm
+
+                        - Early 1900s, AT&T built global wired networks
+
+                        - Wireless Telegraphy (1890s): Guglielmo Marconi’s radio telegraphy sent Morse code over radio waves, freeing communication from physical wires. He further proved Transatlantic Radio Transmission in 1901
+
+
+					</script>
+            </section>
+
+
+            <section data-markdown>
+                <script type="text/template">
+## Digital Computing history
+
+- Alan Turing wrote paper on Turing machine in 1936
+    - the Turing machine is a theoretical model of computation. It was designed to formalize the concept of what it means to "compute" something — long before real computers existed.
+    - Turing showed that any computation that can be performed algorithmically can be done by this simple machine.
+    - It laid the foundation for computer science, programming languages, and the design of CPUs — all of which boil down to manipulating 0s and 1s in structured ways.
+    - Components of a Turing Machine:
+        - An infinite tape divided into cells (like memory), each cell holding a symbol (like 0 or 1).
+        - A tape head that can read and write symbols, and move left or right.
+        - A finite set of states that guide what the machine should do based on the current symbol and state.
+
+- ENIAC (1945): The first general-purpose electronic computer, followed by EDVAC (1949), which implemented stored-program design.
+- Transistors: Invented in 1947 at Bell Labs, replacing vacuum tubes, leading to smaller, reliable computers (e.g., IBM 700 series).
+- Commercial Computers: UNIVAC I (1951) became the first commercially successful computer. IBM dominated with mainframes like the IBM 7090.
+- Silicon Revolution: Jack Kilby and Robert Noyce developed integrated circuits (ICs) in 1958-1959, enabling compact, powerful computers.
+- Intel 4004 (1971): The first microprocessor, packing a CPU onto a chip.
+					</script>
+            </section>
+
+            <section>
+                <section data-markdown>
+                    <script type="text/template">
+
+## Networing Era Beginnings
+
+- Sputnik 1, launched by the Soviet Union on October 4, 1957, was the world’s first artificial satellite and marked the beginning of both the space age and the satellite era. Its primary communication function was to transmit periodic radio pulses back to Earth, which could be received by radio operators worldwide
+- In 1958, US forms ARPA (Advanced Research Projects Agency) and NASA
+- 1965: Thomas Merrill and Lawrence Roberts link computers in Massachusetts and California via a telephone line using packet switching—a major shift from traditional circuit switching.
+    - Circuit Switiching - Traditional Telephone Model
+        - A dedicated communication path is established between two devices (e.g., during a phone call). That path stays reserved for the entire duration of the session. Data is sent as a continuous stream over the same route.
+    - Packet Switching (Used in the Internet & Data Networks)
+        - Data is broken into small packets, each labeled with destination and sequence info. Packets travel independently across the network using the most efficient routes. They’re reassembled in the correct order at the destination.
+- 1966–1969: ARPA (Advance Research Projects Agency) funds the development of a resilient computer network. One of the first projects released was TRANSIT, a satallite navigation system used for tracking UC Navy Ships and submarines. This system was a precursor to our current Global Postioning System (GPS)
+- 1969: ARPANET launches, connecting: UCLA (Leonard Kleinrock), Stanford Research Institute (SRI), UC Santa Barbara, University of Utah. 
+    - First message sent: “LO” (intended to be “LOGIN” but crashed after two characters).
+    - The subnet would consist of minicomputers called IMPs (Interface Message Processors) connected by then state of the art 56-kbps transmission lines.
+    - For reliablity, each IMP would be connected to two other IMPs atleast.
+    - Each node of the network was to consist of an IMP and a host. A host would send messages up to 8063 bits to its IMP which would then break these up into packets of at most 1008 bits and forward them independently toward the destination.
+    - In addition to helping the fledgling ARPANET grow, ARPA also funded research on the use of satellite networks and mobile packet radio networks.
+- 1973–1974: Vint Cerf and Bob Kahn develop TCP/IP (Transmission Control Protocol/Internet Protocol), designed to enable inter-network communication between different systems.
+    - | Protocol/Architecture                  | Developed By           | Characteristics                                        | Why It Wasn’t Universal                        |
+| -------------------------------------- | ---------------------- | ------------------------------------------------------ | ---------------------------------------------- |
+| **ARPANET NCP**                        | ARPA (U.S. DoD)        | Predecessor to TCP; limited to host-to-host            | No internetworking or addressing system        |
+| **X.25**                               | ITU-T (International)  | Used in early public networks (e.g., France’s Minitel) | Slower, connection-oriented, not scalable      |
+| **SNA (Systems Network Architecture)** | IBM                    | Proprietary for IBM mainframes                         | Not open; worked only in IBM environments      |
+| **DECnet**                             | Digital Equipment Corp | Peer-to-peer architecture for DEC machines             | Tied to DEC hardware and systems               |
+| **Appletalk**                          | Apple                  | Local networking for Apple computers                   | Not designed for wide-area or cross-vendor use |
+| **NetBIOS/NetBEUI**                    | Microsoft/IBM          | LAN protocol for file/printer sharing                  | Non-routable, Windows-specific                 |
+| **UUCP**                               | Unix systems           | Point-to-point Unix communication (email, files)       | No real-time communication, no routing         |
+| **CYCLADES**                           | INRIA (France)         | Introduced key ideas like host responsibility          | Never fully commercialized                     |
+    - Before TCP/IP, NCP (Network Control Protocol) was used in ARPANET, but it couldn’t scale to interconnect different networks. High level protocol built on top of NCP were:
+        | FTP |               Still used in TCP|
+        |-----|------------------------------|
+        | Telnet|            Mostly replaced by ssh|
+        | Email |           SMTP Precursor|
+    - IMP (Interface Message Processor) nodes handled the modem connections. In IMP you have to manually assign host numbers (no IP Addresses, Manual Addressing). There were no retry for packets as IMPs were trusted.
+					</script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+
+## Networing Era Beginnings
+
+- In 1976, Xerox develops Ethernet (by Bob Metcalfe), allowing high-speed wired connections and revolutionizing local area networks (LANs).
+- 1979: 
+    - ARPANET connects to networks in the UK and Norway—beginning international expansion.
+    - The International Organization for Standardization (ISO) recognized the chaos of incompatible networks.
+        - Goal: Create a universal reference model to ensure interoperability.                
+- 1980, OSI (Open System Interconnection) model is proposed by ISO - a 7 layer reference model for network communication
+- 1983:
+    - ARPANET officially adopts TCP/IP, marking the technical start of the Internet.
+    - The Domain Name System (DNS) is introduced, replacing numeric IPs with human-readable names.
+        - By 1984, the flip from hosts to domain begin with RFC 920, which made the first use of "the Dot" structure.
+    - Flag Day of the internet - 1st Jan - 1983
+    - IANA (Internet Assigned Numbers Authority) was formed 
+        |Responsibility |	            Description|
+        |---------------|---------------------------|
+        |IP Address Allocation |	    Assigning blocks of IP addresses to different ARPANET-connected hosts.|
+        |Protocol Number Assignments |	Maintaining a registry of protocol numbers used by TCP/IP (e.g., ICMP, UDP).|
+        |Port Number Registry	 |   Assigning well-known port numbers (e.g., port 80 for HTTP).|
+        |Parameter Coordination	 |   Ensuring that parameters used in protocols (like protocol IDs) did not conflict. |
+        |Publishing RFCs	     |       Jon Postel was also the editor of the RFC (Request for Comments) series, where many standards were documented.|
+- 1984: Number of hosts exceeds 1,000.
+- 1985: NSFNET is established to connect research universities — it will eventually evolve into the modern internet backbone.
+    - NSFNET (National Science Foundation Network) provided better physical infrastructure compared to network of ARPANET
+    - ARPANET was originally built by DARPA for military and research use only. As the internet grew, a more public, academic-friendly network was needed.
+    - NSFNET encouraged broader, open access to networking for researchers, educators, and eventually the public.
+    - NSFNET used dedicated digital circuits leased from telephone companies, These were not dial-up lines, but permanent leased data lines, forming the backbone interconnect.
+    - | Feature                 | **ARPANET**                               | **NSFNET**                                  |
+| ----------------------- | ----------------------------------------- | ------------------------------------------- |
+| **Network Design**      | Centralized packet-switched network       | Hierarchical: Backbone ↔ Regional ↔ Campus  |
+| **Addressing Protocol** | Initially NCP; switched to TCP/IP in 1983 | TCP/IP from the start                       |
+| **Routing**             | Static and basic dynamic routing          | Advanced dynamic routing (e.g., EGP/BGP)    |
+| **Connection Type**     | Point-to-point leased lines               | High-speed leased lines (1.5–45 Mbps) |
+
+
+			</script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+## Networing Era Beginnings
+
+- 1988
+    - The Morris Worm, the first major internet worm, disrupts 10% of connected hosts 
+    - leads to the formation of CERT (Computer Emergency Response Team)
+    - exploited three vulnerabilities in Unix systems
+        - Sendmail Debug Mode (a mail server flaw allowing remote execution).
+        - Fingerd Buffer Overflow (a bug in the finger user-info service).
+        - Weak Passwords (it tried common passwords via rsh).
+    - Once inside a system, it:
+        - Copied itself to new machines.
+        - Disguised its processes (renamed itself to avoid detection).
+        - Re-infected already-infected machines (a design flaw that caused overload).
+    - First felony conviction under the CFAA (Computer Fraud and Abuse Act) (Morris got 3 years probation + a fine).
+    - Fun Fact: Robert Morris later became a respected MIT professor and co-founder of Y Combinator.
+- 1990:
+    - ARPANET is formally decommissioned.
+    - Tim Berners-Lee at CERN develops the World Wide Web, HTML, HTTP, and the first browser.
+                </script>
+                </section>
+
+            </section>
+
+            <section data-markdown>
+                <script type="text/template">
+                    ## Networing: Up and Beyond
+- 1991:
+    - NSF lifts restrictions on commercial use of the internet.
+    - The web becomes publicly available.
+- 1992
+    - IETF (Internet Engineering Task Force) is formed to Develop open standards for the internet (e.g., TCP/IP, HTTP).
+- 1994–1995:
+    - Netscape Navigator, Yahoo!, Amazon, and eBay launch.
+    - SSL (Secure Sockets Layer) developed for secure web communication.
+    - NSFNET decommissioned — commercial ISPs take over backbone services.
+- 1996: Hotmail launches; VoIP begins appearing.
+- 1997: Wi-Fi (IEEE 802.11) is introduced.
+- 1998:
+    - Google is founded.
+    - ICANN (Internet Corporation for Assigned Names and Numbers) is created to manage DNS and IP address allocations.
+- 2000s:
+    - Broadband (DSL/Cable) replaces dial-up.
+    - Wi-Fi (802.11b/g) becomes mainstream.
+    - 3G mobile networks enable smartphones (iPhone launches in 2007).
+- 2010s:
+    - 4G LTE delivers mobile streaming.
+    - Cloud computing (AWS, Azure) transforms IT infrastructure.
+    - Social media (Facebook, Twitter, Instagram) dominates communication.
+- 2020s:
+    - 5G networks enable ultra-low latency (1ms) and gigabit speeds.
+    - Edge computing reduces cloud dependency.
+        - Edge computing is a distributed computing model that processes data closer to its source (e.g., IoT devices, sensors, or local servers) instead of sending it to a centralized cloud data center. This reduces latency, bandwidth use, and reliance on distant servers.
+    - AI-driven networks optimize traffic (e.g., Google’s BBR congestion control).
+- Future:
+    - Quantum networking (unhackable communication via quantum entanglement).
+    - 6G (2030s?) – Potential terabit speeds and holographic communication.
+
+            </script>
+            </section>
+
+
+            <section data-markdown>
+                <script type="text/template">
+        ## TCP/IP Model and OSI Model
+
+![TCP-IP](./media/TCP-IP.png)
+- There are 3 concepts that are central to OSI Model
+    - Services: Each layer performs some services for the layer above it. Ther services definition tells what the layer does, not how entities above it access it or how the layer works. It defines layer's semantics.
+    - Interfaces: A layer's interface tells the processes above it how to access it. It specifies what the parameters are and what results to expect. It, too, says nothing about how the layer works inside.
+    - Protocols: the peer protocols used in a layer are the layer's own business. It can use any protocols it wants to, as long as it gets the job done (i.e., provides the offered services). It can also change them at will without affecting software in higher layers.
+
+| Aspect |	OSI Model |	TCP/IP Model |
+|------------|--------|----------------|
+|Layer Count |	7 layers (more detailed). |	4 layers (simpler). |
+|Development |	Designed top-down (theoretical).	| Evolved bottom-up (practical). |
+|Adoption |	Rarely implemented fully; used for learning. |	Basis of the internet (real-world use).|
+|Flexibility |	Strict separation of layers. |	Looser layer boundaries (e.g., Application layer combines 3 OSI layers).|
+|Protocols |	Generic (not tied to specific tech). |	Directly tied to TCP, IP, HTTP, etc.|
+
+- Why TCP/IP "Won" Over OSI
+    - Already in Use – TCP/IP was powering ARPANET (precursor to the internet) before OSI was finalized.
+    - Simpler Structure – Fewer layers made TCP/IP easier to implement.
+    - Backed by the U.S. Government – ARPANET’s success led to TCP/IP becoming the de facto standard.
+    - OSI Was Too Complex – Vendors found it hard to implement all 7 layers strictly.
+
+    </script>
+            </section>
+
+
+            <section>
+
+                <section data-markdown>
+                    <script type="text/template">
+        ## Physical Layer
+- Describes the mechanical and electrical details of network components such as cables, connectors, and network interfaces. The physical layer is concerned with transmitting raw bits over a communication channel. The design issues have to do with making sure that when one side sends a 1 bit, it is received by the other side as a 1 bit, not as a 0 bit.
+    | Responsibility |	Details|
+    |----------------|---------|
+    | Bit Transmission |	Converts binary data into signals suitable for the medium (electrical, light, or radio waves).|
+    | Physical Medium Attachment |	Defines how devices are physically connected (e.g., type of cable, connector pins).|
+    | Signal Encoding |	Defines how 0s and 1s are represented (e.g., voltage levels, light pulses, radio frequency).|
+    | Data Rate Control |	Determines how fast bits are transmitted (measured in bits per second - bps).|
+    | Synchronization |	Makes sure the sender and receiver are synchronized at the bit level (timing!).|
+    | Transmission Mode |	Defines directionality: Simplex (one way), Half-Duplex (both ways, but one at a time), Full-Duplex (both ways simultaneously).|
+    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+## kinds of transimission media: Wired
+- Twisted pairs: The King of Network Cables
+    - A twisted pair consists of two insulated copper wires, typically about 1 mm thick. The wires are twisted together in a helical form, similar to a DNA molecule.
+    - Why Twist the Wires?
+        - When electrical current flows through a wire, it creates an electromagnetic field. This can cause two types of problems:
+            - Crosstalk: Signal from one wire interferes with another nearby wire.
+            - External Interference: Radio signals, electrical devices, or even lightning can induce noise into the cable.    
+        - Twisting the pair ensures that interference affects both wires equally, canceling out the noise when the signal is received.
+    - More Twists = Less Interference
+    - A signal is usually carried as the difference in voltage between the two wires in the pair.
+    - A Category 5e twisted pair consists of two insulated wires gently twisted together. Four such pairs are typically grouped in a plastic sheath to protect the wires and keep them together.
+    ![TwistedPairs](./media/TwistedPairs.png)                
+
+- Co-Axial Cable
+    - A coaxial cable (or co-ax) is a type of electrical transmission line used to carry high-frequency signals with low interference and signal loss. It is widely used in TV, internet (cable broadband), radio, and CCTV systems.
+    - ![CoAxialCable](./media/CoAxialCable.png)
+        </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ## kinds of transimission media: Wired
+- Fiber Optics
+    - Fiber-optic cable uses a glass strand and carries the data signals as light instead of electricity.
+    - In contrast, the achievable bandwidth with fiber technology is in excess of 50,000 Gbps (50 Tbps)
+    - The current practical limit of around 100 Gbps is simply due to our inability to convert between electrical and optical signals any faster. To build higher-capacity links, many channels are simply carried in parallel over a single fiber.
+    
+    ![FibreOptics](./media/FibreOptics.png)
+    - Structure of an Optical Fibre:
+        Core: Thin glass/plastic centre where light travels (high refractive index).
+        Cladding: Outer layer with a lower refractive index to enable TIR.
+        Buffer Coating: Protective outer layer.
+    - Refraction is the bending of light as it passes from one medium to another with a different optical density (refractive index). This occurs because light changes speed when moving between media.
+    - Due to the low attenuation (signal loss) in fibre , repeaters are needed only about every 50 km on long lines, versus about every 5 km for copper,
+
+
+    | Feature              | Twisted Pair       | Coaxial Cable      | Fiber Optic Cable     |
+    |----------------------|--------------------|---------------------|------------------------|
+    | Medium               | Copper (twisted)   | Copper + Shielding  | Glass/Plastic (optical)|
+    | Speed/Bandwidth      | Up to 10 Gbps       | Up to 1 Gbps         | 100 Gbps+              |
+    | Max Distance         | ~100 meters         | ~500 meters          | 10–100+ kilometers     |
+    | Interference Resistance | Low–Moderate    | High                 | Very High              |
+    | Cost                 | Low                 | Medium               | High                   |
+    | Use Cases            | LAN, telephony      | TV, CCTV, cable net  | Backbone, ISPs, data centers |
+
+
+
+                    </script>
+                </section>
+
+
+                <section data-markdown>
+                    <script type="text/template">
+## kinds of transimission media: Wireless
+- When electrons move, they create electromagnetic waves that can propagate through space (even in a vacuum). These waves were predicted by the British physicist James Clerk Maxwell in 1865 and first observed by the German physicist Heinrich Hertz in 1887
+- When an antenna of the appropriate size is attached to an electrical circuit, the electromagnetic waves can be broadcast efficiently and received by a receiver some distance away. All wireless communication is based on this principle.
+- Wireless communications use specific parts of this spectrum to carry data through the air — primarily radio waves and microwaves.
+- The biggest challenge concerning the electromagnetic spectrum concerns performing spectrum allocation efficiently and fairly. If multiple parties can transmit data in the same part of the spectrum in the same geographic region, there is significant potential for the communicating parties to interfere with one another.
+
+![ElectroMagneticSpectrum](./media/ElectroMagneticSpectrum.png)
+| Band Name                 | Frequency Range | Characteristics                  | Examples                             |
+| ------------------------- | --------------- | -------------------------------- | ------------------------------------ |
+| **VLF/LF/MF**             | 3 kHz – 3 MHz   | Long range, low data rates       | Submarine comms, AM radio            |
+| **HF**                    | 3 – 30 MHz      | Medium range, atmospheric bounce | Shortwave radio                      |
+| **VHF/UHF**               | 30 MHz – 3 GHz  | Moderate range, better bandwidth | TV, FM radio, walkie-talkies, 2G, 3G |
+| **SHF (Microwave)**       | 3 – 30 GHz      | High-speed data, short range     | Wi-Fi, 4G/5G, radar, satellite       |
+| **EHF (Millimeter Wave)** | 30 – 300 GHz    | Ultra-fast, very short range     | 5G mmWave, experimental              |
+
+
+                    </script>
+                </section>
+
+
+                <section data-markdown>
+                    <script type="text/template">
+
+## kinds of transimission media: Satellite
+- Satellite networking enables communication and internet access using orbiting satellites instead of traditional ground-based infrastructure like fiber or cell towers. It’s vital for remote areas, maritime, aviation, and global coverage.
+    - Signal Sent from Earth (Uplink):
+    Your device or dish sends data to the satellite using radio or microwave frequencies.
+    Often via a modem connected to a satellite dish.
+    - Satellite Receives and Relays Signal:
+    Acts as a repeater or switch.
+    Depending on the type, it might just bounce the signal back (bent-pipe) or process it onboard (smart satellites).
+    - Signal Sent to Earth (Downlink):
+    Satellite beams data to a ground station, which connects to the internet backbone or other networks.
+    - Response Travels Back:
+    The return data follows the same path in reverse: internet → ground station → satellite → your dish.
+- Used by starklink with leo, faster than fiber optics as light travel through glass vs air, weather
+- GPS
+    - GPS works by measuring distances (not angles) to at least 4 satellites and using trilateration to calculate your position.
+    - Satellites send signals:
+        - Each GPS satellite continuously broadcasts its exact time and location in orbit.
+        - These signals travel at the speed of light.
+    - Your GPS receiver picks up the signals:
+        - It calculates how long each signal took to arrive.
+        - Using time × speed of light = distance, it knows how far it is from each satellite.
+    - Trilateration determines your position:
+        - With distances to 3 satellites, your position is narrowed to two possible points.
+        - A 4th satellite eliminates ambiguity and corrects for clock error (since your phone’s clock isn't atomic-accurate).
+                    </script>
+                </section>
+
+
+            </section>
+
+
+            <section>
+                <section data-markdown>
+                    <script type="text/template">
+## Data Link Layer
+- The main task of the data link layer is to transform a raw transmission facility into a line that appears free of undetected transmission errors to the network layer. It accomplishes this task by having the sender break up the input data into data frames (typically a few hundred or a few thousand bytes) and transmit the frames sequentially. If the service is reliable, the receiver confirms correct receipt of each frame by sending back an acknowledgement frame    
+    - Transfers data frames between two nodes on the same physical link and ensure that the communication is reliable and error-free at that link level.
+- the data link layer takes the packets it gets from the network layer and encapsulates them into frames for transmission 
+- For the most part, the link layer is implemented on a chip called the network adapter (Network Interface Card (NIC)), also sometimes known as a network interface controller (NIC). The network adapter implements many link layer services including framing, link access, error detection, and so on. Thus, much of a link-layer controller’s functionality is implemented in hardware.
+- This framework makes use of the unique hardware addresses (MAC addresses) that are encoded on the card chip. The data-link protocol then uses the MAC addresses for the discovery of other systems situated on the network, to bring about data transfer in the right direction. The Network cards come in two types; the wired and the wireless network cards.
+            <img  src='./media/NetworkAdapter.png' width="400" height="300">     <img src='./media/DataLinkFrame.png'> 
+            </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+## Key Functions of data link layer: Framing
+- Breaking up the bit stream into frames is more difficult than it at first appears. A good design must make it easy for a receiver to find the start of new frames while using little of the channel bandwidth. We will look at four methods:
+- Byte Count 
+    - It uses a field in the header to specify the number of bytes in the frame. When the data link layer at the destination sees the byte count, it knows how many bytes follow and hence where the end of the frame is.
+    - Sending a frame back to the source asking for a retransmission does not help either, since the destination does not know how many bytes to skip over to get to the start of the retransmission. For this reason, the byte count method is rarely used by itself.
+<br> <img src='./media/ByteCount.png' width="400" height="200">
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+## Key Functions of data link layer: Framing
+- Flag bytes with byte stuffing
+    - The second framing method gets around the problem of resynchronization after an error by having each frame start and end with special bytes. Often the same byte, called a flag byte, is used as both the starting and ending delimiter.
+    - It may happen that the flag byte occurs in the data, One way to solve this problem is to have the sender’s data link layer insert a special escape byte (ESC) just before each ‘‘accidental’’ flag byte in the data.
+    - The data link layer on the receiving end removes the escape bytes before giving the data to the network layer. This technique is called byte stuffing.
+    - Similar technique works with bit as well.
+    <br> <img src='./media/ByteStuffing.png' width="450" height="300">
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+## Key Functions of data link layer: Physical Addressing using MAC Address
+- A MAC (Media Access Control) address is a unique hardware identifier assigned to a device’s network interface (e.g., Wi-Fi card, Ethernet port). Unlike an IP address (which can change), a MAC address is permanently burned into the hardware by the manufacturer.
+- Format of a MAC Address
+    - 48-bit hexadecimal number (12 digits).
+    - Typically written as six pairs separated by colons or hyphens (e.g., 00:1A:2B:3C:4D:5E).
+    - The first 3 pairs (OUI – Organizationally Unique Identifier) identify the manufacturer (e.g., 00:1A:2B = Intel).
+    - The last 3 pairs are a unique device identifier.
+- DL Layer uses MAC (Media Access Control) addresses (e.g., 00:1A:2B:3C:4D:5E) to identify devices on a local network.
+- Ensures frames are delivered to the correct device within the same network segment.
+- IEEE manages the MAC address space.
+
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+## Key Functions of data link layer: Error Detection and Correction
+- One model is that errors are caused by extreme values of thermal noise that overwhelm the signal briefly and occasionally, giving rise to isolated single-bit errors. Another model is that errors tend to come in bursts rather than singly. This model follows from the physical processes that generate them—such as a deep fade on a wireless channel or transient electrical interference on a wired channel.
+- we cover these codes in the link layer because this is the first place that we have run up against the problem of reliably transmitting groups of bits. However, the codes are widely used because reliability is an overall concern. Error-correcting codes are also often seen in higher layers, particularly for real-time media and content distribution. Error-detecting codes are commonly used in link, network, and transport layers.
+- Error-Detecting Codes
+    1. Parity.
+        - Perhaps the simplest form of error detection is the use of a single parity bit. Suppose that the information to be sent, D in Figure 6.4, has d bits. In an even parity scheme, the sender simply includes one additional bit and chooses its value such that the total number of 1s in the d + 1 bits (the original information plus a parity bit) is even.
+        - ![Parity_EDC](./media/Parity_EDC.png)
+        - It can detect single bit errors but the probablity of detecting multiple bit errors is low
+    2. Checksums.
+        - The checksum is usually placed at the end of the message, as the complement of the sum function. This way, errors may be detected by summing the entire received codeword, both data bits and checksum. If the result comes out to be zero, no error has been detected.
+    3. Cyclic Redundancy Checks (CRCs).
+        - CRC codes are also known as polynomial codes, since it is possible to view the bit string to be sent as a polynomial whose coefficients are the 0 and 1 values in the bit string, with operations on the bit string interpreted as polynomial arithmetic.
+                    </script>
+                </section>
+
+
+                <section data-markdown>
+                    <script type="text/template">
+## Ethernet
+- Ethernet is most popular set of protocols for physical and data link layer. Ethernet comes in various speed versions:
+    - Standard Ethernet
+        - Used co-axial cable or unsheilded twisped-pair(UTP) cable. Runs at 10 Mbps.
+    - Fast Ethernet
+        - Runs at 100 Mbps. It uses two pairs of UTP cable, with at least Cat-5 cable.
+    - Gigabit Ethernet
+        - Runs at 1 Gbps or more. Two grade of cables are commonly used: cat-5e or cat-6.
+- A common pattern used for Ethernet and 802.11 is to have a frame begin with a well-defined pattern called a preamble. This pattern might be quite long (72 bits is typical for 802.11) to allow the receiver to prepare for an incoming packet. The preamble is then followed by a length (i.e., count) field in the header that is used to locate the end of the frame.
+- ![EtherNetFraming](./media/EthernetFrame.png)
+- Preamble is used for synchronization between sender and receiver. It ensures that the receiving device can properly detect and interpret the incoming data.
+- The maximum transmission unit (MTU) of Ethernet is 1,500 bytes. This means that if the IP datagram exceeds 1,500 bytes, then the host has to fragment the datagram,
+                    </script>
+                </section>
+
+
+                <section data-markdown>
+                    <script type="text/template">
+## Ethernet Switches
+- An Ethernet switch is a Layer 2 (Data Link Layer) networking device that connects multiple devices (computers, printers, servers, etc.) in a Local Area Network (LAN). Unlike hubs, switches intelligently forward data only to the intended recipient, improving efficiency, speed, and security.
+- The Switch makes use of the physical device’s address, which is then used to deliver the message to the right destination. Layer 2 device. Uses 3 concepts - Leanrning, forwarding and flooding. In learining it creates a map of port to mac address, in forwarding it forwards based on this map, in flooding if any address is not found in map it sends it to all the ports (like hub)
+![SwitchRouting](./media/SwitchRouting.png)
+</script>
+                </section>
+            </section>
+
+            <section>
+                <section data-markdown>
+                    <script type="text/template">
+## Network Layer
+- The network layer is concerned with getting packets from the source all the way to the destination. Getting to the destination may require making many hops at intermediate routers along the way. This function clearly contrasts with that of the data link layer, which has the more modest goal of just moving frames from one end of a (virtual) ‘wire’ to the other. Thus, the network layer is the lowest layer that deals with end-to-end transmission.
+- Key Functions of the Network Layer
+    1. Logical Addressing (IP Addressing)
+        - Uses IP addresses (IPv4: 192.168.1.1, IPv6: 2001:0db8::1) to uniquely identify devices globally.
+        - Differentiates between private (LAN) and public (Internet) addressing.
+        - Works with subnet masks to define network boundaries.
+    2. Routing (Path Determination)
+        - Determines the best path for data packets using routing tables.
+        - Uses routing protocols like:
+            - Static Routing (manually configured routes).
+            - Dynamic Routing (automatically updates routes using protocols like OSPF, BGP, RIP).
+    3. Packet Forwarding & Switching
+        - Forwarding - is the actual movement of packets from an incoming interface to an outgoing interface based on the routing table.
+        - Moves packets from source to destination using:
+            - Connectionless (Datagram) Approach (e.g., IP – best-effort delivery). 
+                - If connectionless service is offered, packets are injected into the network individually and routed independently of each other. No advance setup is needed. In this context, the packets are frequently called datagrams (in analogy with telegrams) and the network is called a datagram network.
+            - Connection-Oriented Approach (e.g., MPLS – ensures QoS).
+                - a path from the source router all the way to the destination router must be established before any data packets can be sent. This connection is called a VC (Virtual Circuit), in analogy with the physical circuits set up by the (old) telephone system, and the network is called a virtual-circuit network.
+    4. Fragmentation & Reassembly
+        - Breaks large packets into smaller MTU (Maximum Transmission Unit)-sized fragments if needed.
+        - Reassembles fragments at the destination.
+    5. Congestion Control
+        - Manages network traffic to prevent overload (e.g., using ICMP Source Quench messages).
+
+- It is sometimes useful to make a distinction between routing, which is making the decision which routes to use, and forwarding, which is what happens when a packet arrives. One can think of a router as having two processes inside it. One of them handles each packet as it arrives, looking up the outgoing line to use for it in the routing tables. This process is forwarding. The other process is responsible for filling in and updating the routing tables. That is where the routing algorithm comes into play.
+
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+## Routing Algorithms: Static Routing 
+- Static routing is a method where network administrators manually configure routes in a router’s routing table. Unlike dynamic routing (which uses protocols like OSPF or BGP), static routes do not change automatically and must be updated manually if the network topology changes.
+- When to Use Static Routing
+    - Small networks with few changes (e.g., home labs, small offices).
+    - Stub networks (only one exit path).
+    - Security control (prevent unwanted route advertisements).
+    - Backup routes (floating static routes for redundancy).
+
+- Shortest Path Routing
+    - Uses a predefined shortest path (based on hops, cost, or bandwidth).
+    - Example: Dijkstra’s Algorithm (used in OSPF).
+- Flooding
+    - Sends packets to all outgoing links except the incoming one.
+    - Disadvantage: Causes high traffic (used only in specialized cases like wireless ad-hoc networks).
+- Fixed Routing
+    - A single, fixed path is defined for each destination.
+    - Uses a static routing table (common in small networks).
+
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+## Routing Algorithms: Dynamic Routing   
+- Dynamic routing is a networking technique where routers automatically learn and update routing information using specialized protocols. Unlike static routing (which requires manual configuration), dynamic routing adapts to network topology changes in real-time, making it essential for large, complex networks.
+- Classification of Dynamic Routing Algorithms
+    - By Operation Type
+        - Distance Vector Algorithms
+            - Bellman Ford 
+            - Diffusing Update Algorithm (DUAL)
+        - Link-State Algorithms
+            - Dijkstra's Algorithm
+            - IS-IS Algorithm
+        - Path Vector Algorithms
+            - Border Gateway Protocol (BGP) Algorithm
+        - Hybrid Algorithms
+            - EIGRP's DUAL
+    - By Scope
+        - Interior Gateway Protocols (IGPs) - For within an Autonomous System (AS)
+        - Exterior Gateway Protocols (EGPs) - For between ASes
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+## Internet Protocol   
+- In the network layer, the Internet can be viewed as a collection of networks or Autonomous Systems (ASes) that are interconnected. There is no real structure, but several major backbones exist. These are constructed from high-bandwidth lines and fast routers.
+- The biggest of these backbones, to which everyone else connects to reach the rest of the Internet, are called Tier 1 networks. Attached to the backbones are ISPs (Internet Service Providers) that provide Internet access to homes and businesses, data centers and colocation facilities full of server machines, and regional (mid-level) networks. The data centers serve much of the content that is sent over the Internet. Attached to the regional networks are more ISPs, LANs at many universities and companies, and other edge networks.
+    - <img src='./media/Internet.png' width="450" height="300">
+- The glue that holds the whole Internet together is the network layer protocol, IP (Internet Protocol). Unlike almost all older network layer protocols, IP was designed from the beginning with internetworking in mind. 
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+## Internet Protocol - IPv4
+- <img src='./media/IPv4%20Header.png' width="450" height="300">
+- Version number: These 4 bits specify the IP protocol version of the datagram. By looking at the version number, the router can determine how to interpret the remainder of the IP datagram
+- Header length: Because an IPv4 datagram can contain a variable number of options (which are included in the IPv4 datagram header), these 4 bits are needed to determine where in the IP datagram the payload (for example, the transport layer segment being encapsulated in this datagram) actually begins. Most IP datagrams do not contain options, so the typical IP datagram has a 20-byte header.
+- Type of service: The type of service (TOS) bits were included in the IPv4 header to allow different types of IP datagrams to be distinguished from each other.
+- Datagram length: This is the total length of the IP datagram (header plus data), measured in bytes.
+- Identifier, flags, fragmentation offset. These three fields have to do with so-called IP fragmentation, when a large IP datagram is broken into several smaller IP datagrams which are then forwarded independently to the destination
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+## IP Addressing
+- Each IP address is 32 bits long (equivalently, 4 bytes). there are thus a total of 2^32 (or approximately 4 billion) possible IP addresses. 
+- ICANN assigns three major classes of addresses, called Class A, B, and C
+    - Class A - ICANN assigns the owner a number in the first octet. enable the owner to address up to around 16.5 million unique nodes.
+    - Class B - define the first two octets, leaving the remaining two open for the address’s owner to use. 65634 unique nodes
+    - Class C - first 3 octets defined, leaving 254 unique nodes
+- ISP might own either a Class A or B address.
+- IP addresses can be divided in two sections - network id and host id. eg. Class A has 1st octet as network id where as rest is host id.
+## IP Subnetting
+<img src='./media/IPSubnetting.png' width="550" height="200">
+- 2^n - 2 IPs
+
+                    </script>
+                </section>
+
+
+                <section data-markdown>
+                    <script type="text/template">
+## DHCP (Dynamic Host Configuration Protocol) 
+- Assigns IP dynamically when you connect to a network
+- Mostly static IP addresses are reserved for servers and network devices where as dynamic for clients
+- In addition to host IP address assignment, DHCP also allows a host to learn additional information, such as its subnet mask, the address of its first-hop router (often called the default gateway), and the address of its local DNS server.
+- DHCP is a client-server protocol. A client is typically a newly arriving host wanting to obtain network configuration information, including an IP address for itself.
+<img src='./media/DHCP.png' width="350" height="400">
+
+                    </script>
+                </section>
+
+
+                <section data-markdown>
+                    <script type="text/template">
+## NAT (Network Address Translation)
+- The NAT-enabled router does not look like a router to the outside world. Instead the NAT router behaves to the outside world as a single device with a single IP address.
+- The router runs a DHCP server to provide addresses to computers within the NAT-DHCP-router-controlled home network’s address space.
+
+<img src='./media/NAT.png' width="450" height="300">
+
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+## Internet Control Message Protocol (ICMP)     
+- When something unexpected occurs during packet processing at a router, the event is reported to the sender by the ICMP (Internet Control Message Protocol). ICMP is also used to test the Internet.
+- Traceroute finds the routers along the path from the host to a destination IP address. It finds this information without any kind of privileged network support. The method is simply to send a sequence of packets to the destination, first with a TtL of 1, then a TtL of 2, 3, and so on. The counters on these packets will reach zero at successive routers along the path. These routers will each obediently send a TIME EXCEEDED message back to the host.
+- The ECHO and ECHO REPLY messages are sent by hosts to see if a given destination is reachable and currently alive. Upon receiving the ECHO message, the destination is expected to send back an ECHO REPLY message. These messages are used in the ping utility that checks if a host is up and on the Internet.
+<img src='./media/ICMP.png' width="450" height="300">
+                    </script>
+                </section>
+            </section>
+            <section>
+                <section data-markdown>
+                    <script type="text/template">
+## Transport Layer
+
+                    </script>
+                </section>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- <script>
+    fetch('Markdown_2.md')
+      .then(response => response.text())
+      .then(text => {
+        document.getElementById('content').innerHTML = marked.parse(text);
+      });
+  </script>  -->
+
+    <script src="dist/dist/reveal.js"></script>
+    <script src="dist/plugin/markdown/markdown.js"></script>
+    <script>
+
+        // Also available as an ES module, see:
+        // https://revealjs.com/initialization/
+        Reveal.initialize({
+            hash: true,
+            center: true,
+            // Learn about plugins: https://revealjs.com/plugins/
+            plugins: [RevealMarkdown]
+        });
+
+    </script>
+
+</body>
+
+</html>
