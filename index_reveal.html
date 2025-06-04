@@ -219,11 +219,12 @@
             </section>
 
 
-            <section data-markdown>
-                <script type="text/template">
-        ## TCP/IP Model and OSI Model
+            <section>
+                <section data-markdown>
+                    <script type="text/template">
+## TCP/IP Model and OSI Model
 
-![TCP-IP](./media/TCP-IP.png)
+![OSI Model](./media/TCP-IP.png) 
 - There are 3 concepts that are central to OSI Model
     - Services: Each layer performs some services for the layer above it. Ther services definition tells what the layer does, not how entities above it access it or how the layer works. It defines layer's semantics.
     - Interfaces: A layer's interface tells the processes above it how to access it. It specifies what the parameters are and what results to expect. It, too, says nothing about how the layer works inside.
@@ -244,7 +245,51 @@
     - OSI Was Too Complex – Vendors found it hard to implement all 7 layers strictly.
 
     </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+## TCP/IP Model and OSI Model
+
+- Sender Side: Example sending a POST request to an HTTPS webpage
+    - Layer 7 - Application
+        - POST request with JSON data to HTTPS server  
+    - Layer 6 - Presentation
+        - Serialize JSON to flat byte strings
+    - Layer 5 - Session
+        - Request to establish TCP connection/TLS 
+    - Layer 4 - Transport
+        - Sends SYN request target port 443
+    - Layer 3 - Network
+        - SYN is placed an IP packet(s) and adds the source/dest IPs 
+    - Layer 2 - Data link 
+        - Each packet goes into a single frame and adds the source/dest MAC addresses
+    - Layer 1 - Physical
+        - Each frame becomes string of bits which converted into either a radio signal (wifi), electric signal (ethernet), or light (fiber) 
+
+- Receiver Side: Receiver computer receives the POST request the other way around 
+    - Layer 1 - Physical 
+        - Radio, electric or light is received and converted into digital bits
+    - Layer 2 - Data link 
+        - The bits from Layer 1 is assembled into frames
+    - Layer 3 - Network
+        - The frames from layer 2 are assembled into IP packet. 
+    - Layer 4 - Transport
+        - The IP packets from layer 3 are assembled into TCP segments
+        - Deals with Congestion control/flow control/retransmission in case of TCP
+        - If Segment is SYN we don’t need to go further into more layers as we are still processing the connection request
+    - Layer 5 - Session
+        - The connection session is established or identified
+        - We only arrive at this layer when necessary (three way handshake is done)
+    - Layer 6 - Presentation
+        - Deserialize flat byte strings back to JSON for the app to consume
+    - Layer 7 - Application
+        - Application understands the JSON POST request and your express json or apache request receive event is triggered
+
+
+                    </script>
+                </section>
             </section>
+
 
 
             <section>
@@ -289,18 +334,18 @@
                     <script type="text/template">
                         ## kinds of transimission media: Wired
 - Fiber Optics
+    - Fiber optics is the backbone of modern telecommunications, enabling high-speed internet, long-distance communication, and data centers.
     - Fiber-optic cable uses a glass strand and carries the data signals as light instead of electricity.
     - In contrast, the achievable bandwidth with fiber technology is in excess of 50,000 Gbps (50 Tbps)
     - The current practical limit of around 100 Gbps is simply due to our inability to convert between electrical and optical signals any faster. To build higher-capacity links, many channels are simply carried in parallel over a single fiber.
-    
-    ![FibreOptics](./media/FibreOptics.png)
     - Structure of an Optical Fibre:
-        Core: Thin glass/plastic centre where light travels (high refractive index).
-        Cladding: Outer layer with a lower refractive index to enable TIR.
-        Buffer Coating: Protective outer layer.
+        - Core: Thin glass/plastic centre where light travels (high refractive index).
+        - Cladding: Outer layer with a lower refractive index to enable TIR.
+        - Buffer Coating: Protective outer layer.
     - Refraction is the bending of light as it passes from one medium to another with a different optical density (refractive index). This occurs because light changes speed when moving between media.
-    - Due to the low attenuation (signal loss) in fibre , repeaters are needed only about every 50 km on long lines, versus about every 5 km for copper,
-
+    - Due to the low attenuation (signal loss) in fibre , repeaters are needed only about every 50 km on long lines, versus about every 5 km for copper
+    - Underwater fiber optic world wide map: https://www.submarinecablemap.com/
+    - <img src='./media/FibreOptics.png' width="500" height="200">
 
     | Feature              | Twisted Pair       | Coaxial Cable      | Fiber Optic Cable     |
     |----------------------|--------------------|---------------------|------------------------|
@@ -382,7 +427,7 @@
 - the data link layer takes the packets it gets from the network layer and encapsulates them into frames for transmission 
 - For the most part, the link layer is implemented on a chip called the network adapter (Network Interface Card (NIC)), also sometimes known as a network interface controller (NIC). The network adapter implements many link layer services including framing, link access, error detection, and so on. Thus, much of a link-layer controller’s functionality is implemented in hardware.
 - This framework makes use of the unique hardware addresses (MAC addresses) that are encoded on the card chip. The data-link protocol then uses the MAC addresses for the discovery of other systems situated on the network, to bring about data transfer in the right direction. The Network cards come in two types; the wired and the wireless network cards.
-            <img  src='./media/NetworkAdapter.png' width="400" height="300">     <img src='./media/DataLinkFrame.png'> 
+            <img  src='./media/NetworkAdapter.png' width="400" height="300">    
             </script>
                 </section>
 
@@ -390,10 +435,11 @@
                     <script type="text/template">
 ## Key Functions of data link layer: Framing
 - Breaking up the bit stream into frames is more difficult than it at first appears. A good design must make it easy for a receiver to find the start of new frames while using little of the channel bandwidth. We will look at four methods:
+<br> <img src='./media/DataLinkFrame.png'> 
 - Byte Count 
     - It uses a field in the header to specify the number of bytes in the frame. When the data link layer at the destination sees the byte count, it knows how many bytes follow and hence where the end of the frame is.
     - Sending a frame back to the source asking for a retransmission does not help either, since the destination does not know how many bytes to skip over to get to the start of the retransmission. For this reason, the byte count method is rarely used by itself.
-<br> <img src='./media/ByteCount.png' width="400" height="200">
+<br> <img src='./media/ByteCount.png' width="400" height="200">  
                     </script>
                 </section>
 
@@ -421,6 +467,7 @@
 - DL Layer uses MAC (Media Access Control) addresses (e.g., 00:1A:2B:3C:4D:5E) to identify devices on a local network.
 - Ensures frames are delivered to the correct device within the same network segment.
 - IEEE manages the MAC address space.
+    - Use this to check vendor: https://macvendors.com/
 
                     </script>
                 </section>
@@ -619,6 +666,7 @@
 - When something unexpected occurs during packet processing at a router, the event is reported to the sender by the ICMP (Internet Control Message Protocol). ICMP is also used to test the Internet.
 - Traceroute finds the routers along the path from the host to a destination IP address. It finds this information without any kind of privileged network support. The method is simply to send a sequence of packets to the destination, first with a TtL of 1, then a TtL of 2, 3, and so on. The counters on these packets will reach zero at successive routers along the path. These routers will each obediently send a TIME EXCEEDED message back to the host.
 - The ECHO and ECHO REPLY messages are sent by hosts to see if a given destination is reachable and currently alive. Upon receiving the ECHO message, the destination is expected to send back an ECHO REPLY message. These messages are used in the ping utility that checks if a host is up and on the Internet.
+- Doesn;t require listeners on ports to be opened
 <img src='./media/ICMP.png' width="450" height="300">
                     </script>
                 </section>
